@@ -1,0 +1,15 @@
+
+# Ignore Docker build artifacts
+sos_voice_record/backend/Dockerfile
+docker-compose.yml
+.dockerignore
+
+sos_voice_record/backend/__pycache__
+sos_voice_record/backend/.venv/
+
+# Ignore other temporary or build files
+*.tmp
+*.bak
+
+utils/token.json
+utils/credentials.json
