@@ -1,7 +1,7 @@
 
-## Setup Instructions
+# Setup Instructions
 
-### Step 1: Create Required Folders
+## Step 1: Create Required Folders
 
 Create the following folders in the project directory:
 
@@ -11,7 +11,7 @@ Create the following folders in the project directory:
 - `nginx`
   - `nginx.conf`
 
-### Step 2: Run Docker Compose
+## Step 2: Run Docker Compose
 
     Run the following command to start the services:
 
@@ -19,8 +19,9 @@ Create the following folders in the project directory:
     docker-compose up -d
     ```
 
-### Step 3: Attach to the Backend Container
-    ```shell
+## Step 3: Attach to the Backend Container
+
+     ```
     Attach to the backend container to perform additional setup:
         * docker attach [container id backend]
         * Call API end-point get_attachments
@@ -29,36 +30,35 @@ Create the following folders in the project directory:
         * Exit attach
     ```
 
+### Project Structure
 
-## Project Structure
-    ```shell
-    .
-    ├── README.md
-    ├── docker-compose.yml
-    ├── media
-    ├── sos_voice_record
-    │   ├── backend
-    │   │   ├── Dockerfile
-    │   │   ├── attachment_handler.py
-    │   │   ├── main.py
-    │   │   ├── media
-    │   │   ├── models.py
-    │   │   ├── requirements.txt
-    │   │   ├── utils
-    │   │   └── voice_log.py
-    │   └── nginx
-    │       └── nginx.conf
-    └── utils
-        ├── credentials.json
-        └── token.json
+    ```
+        .
+        ├── README.md
+        ├── docker-compose.yml
+        ├── media
+        ├── sos_voice_record
+        │   ├── backend
+        │   │   ├── Dockerfile
+        │   │   ├── attachment_handler.py
+        │   │   ├── main.py
+        │   │   ├── media
+        │   │   ├── models.py
+        │   │   ├── requirements.txt
+        │   │   ├── utils
+        │   │   └── voice_log.py
+        │   └── nginx
+        │       └── nginx.conf
+        └── utils
+            ├── credentials.json
+            └── token.json
     ```
 
-## API End-point
+### API End-point
 
     ```shell
     GET /voice_log/1186
     ```
-    Body:
 
     ```json
     {
