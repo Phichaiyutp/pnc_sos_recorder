@@ -13,11 +13,11 @@ Create the following folders in the project directory:
 
 ### Step 2: Run Docker Compose
 
-Run the following command to start the services:
+    Run the following command to start the services:
 
-```bash
-docker-compose up -d
-
+    ```bash
+    docker-compose up -d
+    ```
 
 ### Step 3: Attach to the Backend Container
 Attach to the backend container to perform additional setup:
