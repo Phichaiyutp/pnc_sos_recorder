@@ -21,11 +21,11 @@ docker-compose up -d
 
 ### Step 3: Attach to the Backend Container
 Attach to the backend container to perform additional setup:
-Markup :    * docker attach [container id backend]
-            * Call API end-point get_attachments
-            * Copy url from container to browser and accept 
-            * Copy code from browser to keybord input
-            * Exit attach
+    * docker attach [container id backend]
+    * Call API end-point get_attachments
+    * Copy url from container to browser and accept 
+    * Copy code from browser to keybord input
+    * Exit attach
 
 
 ## Project Structure
