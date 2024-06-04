@@ -29,3 +29,22 @@ Attach to the backend container to perform additional setup:
 
 
 ## Project Structure
+.
+├── README.md
+├── docker-compose.yml
+├── media
+├── sos_voice_record
+│   ├── backend
+│   │   ├── Dockerfile
+│   │   ├── attachment_handler.py
+│   │   ├── main.py
+│   │   ├── media
+│   │   ├── models.py
+│   │   ├── requirements.txt
+│   │   ├── utils
+│   │   └── voice_log.py
+│   └── nginx
+│       └── nginx.conf
+└── utils
+    ├── credentials.json
+    └── token.json
