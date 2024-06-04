@@ -16,8 +16,8 @@ Run the following command to start the services:
 
 ### Step 3: Attach to the Backend Container
 Attach to the backend container to perform additional setup:
-    docker attach [container id backend]
-    Call API end-point get_attachments
-    Copy url from container to browser and accept 
-    Copy code from browser to keybord input
-    exit attach
+Markup : *     docker attach [container id backend]
+Markup : *     Call API end-point get_attachments
+Markup : *     Copy url from container to browser and accept 
+Markup : *     Copy code from browser to keybord input
+Markup : *     exit attach
