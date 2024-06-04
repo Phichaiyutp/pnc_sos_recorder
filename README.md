@@ -54,10 +54,11 @@ Create the following folders in the project directory:
     ```
 
 ## API End-point
-    ```
+
+    ```shell
     GET /voice_log/1186
-    Body:
     ```
+    Body:
 
     ```json
     {
@@ -76,10 +77,12 @@ Create the following folders in the project directory:
         }
     }
     ```
-    ```
+
+    ```shell
     GET /voice_log/
-    Body:
     ```
+
+    Body:
 
     ```json
     {
