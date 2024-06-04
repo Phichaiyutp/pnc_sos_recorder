@@ -4,7 +4,7 @@ services:
     container_name: sos_voice_record_nginx
     volumes:
       - ./sos_voice_record/nginx/nginx.conf:/etc/nginx/nginx.conf
-      - ./sos_voice_record/backend/media:/var/www/media
+      - ./media:/var/www/media
     ports:
       - "8011:80"
     networks:
