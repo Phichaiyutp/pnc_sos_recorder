@@ -250,7 +250,10 @@ class AttachmentHandler:
         try:
             db = self.db
             payloads = db.query(Attachment).all()
-            return {'ok': True, 'payloads': payloads}
+            if payloads:
+                return {'ok': True, 'payload': payloads}
+            else:
+                return {'ok': False, 'error': 'Not found'}
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
             return {'ok': False, 'error': f"An unexpected error occurred: {e}"}
@@ -259,7 +262,10 @@ class AttachmentHandler:
         try:
             db = self.db
             payload = db.query(Attachment).filter(Attachment.sos_id == sos_id).first() if sos_id else None
-            return {'ok': True, 'payload': payload}
+            if payload:
+                return {'ok': True, 'payload': payload}
+            else:
+                return {'ok': False, 'error': 'Voice not found'}
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
             return {'ok': False, 'error': f"An unexpected error occurred: {e}"}
@@ -268,7 +274,10 @@ class AttachmentHandler:
         try:
             db = self.db
             payloads = db.query(Garbage).all()
-            return {'ok': True, 'payloads': payloads}
+            if payloads:
+                return {'ok': True, 'payload': payloads}
+            else:
+                return {'ok': False, 'error': 'Not found'}
         except Exception as e:
             print(f"An unexpected error occurred: {e}")
             return {'ok': False, 'error': f"An unexpected error occurred: {e}"}
