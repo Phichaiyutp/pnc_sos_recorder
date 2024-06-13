@@ -1,17 +1,12 @@
 FROM python:3.10
 
-# Set environment variables
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-# Create directories for app, utils, and media
-RUN mkdir -p /main/app /main/utils /main/media
+WORKDIR /app
+RUN mkdir -p  /utils /media
 
-# Set the working directory
-WORKDIR /main/app
-
-# Copy the application code
-COPY ./app /main/app
+COPY ./app /app
 
 RUN pip install --no-cache-dir -r requirements.txt
 
