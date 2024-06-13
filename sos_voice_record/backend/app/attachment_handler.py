@@ -12,6 +12,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 
 
+
 class AttachmentHandler:
     def __init__(self):
         DATABASE_URL = os.getenv('DATABASE_URL')
@@ -26,11 +27,17 @@ class AttachmentHandler:
         ]
         self.sender_name = os.getenv("SENDER_NAME")
         self.user_id = os.getenv("USER_ID")
-        self.credentials_path = os.path.join(
+        """ self.credentials_path = os.path.join(
             os.getcwd(), "utils", "credentials.json")
-        self.token_path = os.path.join(os.getcwd(), "utils", "token.json")
-        self.folder_prefix = os.path.join(
-            os.getcwd(), 'media', 'sos_voice_record')
+        self.token_path = os.path.join(os.getcwd(), "utils", "token.json") """
+
+        self.credentials_path = '../utils/credentials.json'
+        self.token_path = '../utils/token.json'
+
+        """ self.folder_prefix = os.path.join(
+            os.getcwd(), 'media', 'sos_voice_record') """
+        
+        self.folder_prefix = '../media/sos_voice_record'
         self.staticfile_prefix = os.getenv("PREFIX_PATH")
 
     def authenticate(self):
