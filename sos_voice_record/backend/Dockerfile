@@ -4,15 +4,15 @@ FROM python:3.10
 ENV PYTHONDONTWRITEBYTECODE 1
 ENV PYTHONUNBUFFERED 1
 
-WORKDIR /main
+# Create directories for app, utils, and media
+RUN mkdir -p /main/app /main/utils /main/media
+
+# Set the working directory
+WORKDIR /main/app
 
 # Copy the application code
-COPY ./app /main
+COPY ./app /main/app
 
-# Create directories for utils and media
-RUN mkdir -p /utils /media
-
-# Copy requirements file and install dependencies
 RUN pip install --no-cache-dir -r requirements.txt
 
 EXPOSE 80
