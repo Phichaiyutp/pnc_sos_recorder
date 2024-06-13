@@ -27,16 +27,12 @@ class AttachmentHandler:
         ]
         self.sender_name = os.getenv("SENDER_NAME")
         self.user_id = os.getenv("USER_ID")
-        """ self.credentials_path = os.path.join(
-            os.getcwd(), "utils", "credentials.json")
-        self.token_path = os.path.join(os.getcwd(), "utils", "token.json") """
-
+        #self.credentials_path = os.path.join( os.getcwd(), "utils", "credentials.json")
+        #self.token_path = os.path.join(os.getcwd(), "utils", "token.json")
         self.credentials_path = '../utils/credentials.json'
         self.token_path = '../utils/token.json'
 
-        """ self.folder_prefix = os.path.join(
-            os.getcwd(), 'media', 'sos_voice_record') """
-        
+        #self.folder_prefix = os.path.join(os.getcwd(), 'media', 'sos_voice_record')
         self.folder_prefix = '../media/sos_voice_record'
         self.staticfile_prefix = os.getenv("PREFIX_PATH")
 
@@ -99,22 +95,18 @@ class AttachmentHandler:
                         if duplicate_by_message_id :
                             pass
                         if duplicate_by_sos_id:
-                            payload = self.process_message(
-                                service, message_id, sos_id, call_timestamp, "Garbage")
+                            payload = self.process_message(service, message_id, sos_id, call_timestamp, "Garbage")
                             if payload:
                                 payloads.append(payload)
                         else:
-                            payload = self.process_message(
-                                service, message_id, sos_id, call_timestamp, "Attachment")
+                            payload = self.process_message( service, message_id, sos_id, call_timestamp, "Attachment")
                             if payload:
                                 payloads.append(payload)
                     else:
-                        if duplicate_by_message_id :
-                            pass
-                        payload = self.process_message(
-                            service, message_id, sos_id, call_timestamp, "Garbage")
-                        if payload:
-                            payloads.append(payload)
+                        if not duplicate_by_message_id :
+                           payload = self.process_message( service, message_id, sos_id, call_timestamp, "Garbage")
+                           if payload:
+                              payloads.append(payload)
                 return {'ok': True, 'data': payloads, 'error': ''}
             else:
                 return {'ok': False, 'error': 'No messages found.'}
@@ -146,24 +138,18 @@ class AttachmentHandler:
                     if part['filename']:
                         FILENAME: str = part['filename']
                         ATT_ID: str = part['body']['attachmentId']
-                        ATT = service.users().messages().attachments().get(
-                            userId=self.user_id, messageId=message_id, id=ATT_ID).execute()
+                        ATT = service.users().messages().attachments().get( userId=self.user_id, messageId=message_id, id=ATT_ID).execute()
                         ATT_DATA: base64 = ATT['data']
-                        FILENAME_NEW: str = f"{message_id}{FILENAME.split(
-                            'recording')[1]}" if "recording" in FILENAME else f"{message_id}{FILENAME}"
-                        FILE_DATA = base64.urlsafe_b64decode(
-                            ATT_DATA.encode('UTF-8'))
-                        CALLER_PATH = os.path.join(
-                            self.folder_prefix, str(caller))
+                        FILENAME_NEW: str = f"{message_id}{FILENAME.split('recording')[1]}" if "recording" in FILENAME else f"{message_id}{FILENAME}"
+                        FILE_DATA = base64.urlsafe_b64decode(ATT_DATA.encode('UTF-8'))
+                        CALLER_PATH = os.path.join(self.folder_prefix, str(caller))
                         os.makedirs(CALLER_PATH, exist_ok=True)
-                        PATH = os.path.join(
-                            CALLER_PATH, FILENAME_NEW or FILENAME)
+                        PATH = os.path.join(CALLER_PATH, FILENAME_NEW or FILENAME)
                         os.makedirs(os.path.dirname(PATH), exist_ok=True)
 
                         with open(PATH, 'wb') as f:
                             f.write(FILE_DATA)
-                            print(f"Attachment '{
-                                  FILENAME_NEW}' saved successfully.")
+                            print(f"Attachment '{FILENAME_NEW}' saved successfully.")
 
                         # Data to be used for creating the attachment
                         data = {

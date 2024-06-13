@@ -16,7 +16,7 @@ services:
     image: postgres:latest
     container_name: sos_voice_record_postgres
     environment:
-      POSTGRES_PASSWORD: xxxx
+      POSTGRES_PASSWORD: pca@1234
       POSTGRES_DB: sos_voice_record
       POSTGRES_USER: root
     ports:
@@ -34,20 +34,20 @@ services:
     ports:
       - "8012:80"
     volumes:
-      - ./app:/main/app
-      - ./media:/main/media
-      - ./utils:/main/utils
+      - ./sos_voice_record/backend/app:/app
+      - ./media:/media
+      - ./utils:/utils
     environment:
-      SENDER_NAME: CloudPBX@planetcloud.cloud
-      GOOGLE_API_KEY: xxxxxxxxxxxxxxxxxxxxxxxx
+      SENDER_NAME: 'CloudPBX@planetcloud.cloud'
+      GOOGLE_API_KEY: 'AIzaSyBBl1ZlKfBfSgb22Agw8oEFSnUWe1V301s'
       USER_ID: me
       CITY_DB_NAME: city_backend
       CITY_DB_USER: root
-      CITY_DB_PASSWORD: xxxx
+      CITY_DB_PASSWORD: pca@1234
       CITY_DB_HOST: '192.168.100.77'
       CITY_DB_PORT: 3306
-      PREFIX_PATH: "https://city.planetcloud.cloud/citybackend/planetcomm/voicerecord/media/sos_voice_record"
-      DATABASE_URL: postgresql://root:xxxxx@sos_voice_record_postgres:5432/sos_voice_record
+      PREFIX_PATH: "https://city.planetcloud.cloud/citybackend/planetcomm/voicerecord/media/wav/sos_voice_record"
+      DATABASE_URL: postgresql://root:pca%401234@192.168.100.77:5432/sos_voice_record
     networks:
       - sos_voice_record_network
     depends_on:
