@@ -34,8 +34,9 @@ services:
     ports:
       - "8012:80"
     volumes:
-      - ./media:/app/media
-      - ./utils:/app/utils
+      - ./app:/main/app
+      - ./media:/main/media
+      - ./utils:/main/utils
     environment:
       SENDER_NAME: CloudPBX@planetcloud.cloud
       GOOGLE_API_KEY: AIzaSyBBl1ZlKfBfSgb22Agw8oEFSnUWe1V301s
