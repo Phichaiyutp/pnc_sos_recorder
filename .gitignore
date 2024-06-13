@@ -1,5 +1,8 @@
-backend/__pycache__
-backend/.venv
+sos_voice_record/backend/__pycache__
+sos_voice_record/backend/.venv
+sos_voice_record/backend/app/media
+sos_voice_record/backend/app/utils
+*.test.py
 .env
 utils/token.json
 utils/credentials.json
